@@ -19,7 +19,7 @@ template = env.get_template('template.html')
 
 rendered_page = template.render(
     company_old=tools.plural_days(company_old),
-    wines=data.wines
+    wines=data.load_excel('wine.xlsx')
 )
 
 with open('index.html', 'w', encoding="utf8") as file:
