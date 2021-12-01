@@ -1,3 +1,7 @@
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
+
+
 def plural_days(n):
     days = ['год', 'года', 'лет']
 
@@ -10,4 +14,8 @@ def plural_days(n):
 
     return str(n) + ' ' + days[p]
 
+
+def get_company_age_plural():
+    company_founded = datetime(year=1920, month=1, day=1)
+    return relativedelta(datetime.today(), company_founded).years
 
