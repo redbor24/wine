@@ -13,6 +13,10 @@ def load_excel(filename):
     return get_restructed_excel_data(excel_data.to_dict(orient='records'))
 
 
+def my_key(wine):
+    return wine['Категория']
+
+
 def get_restructed_excel_data(excel_data):
     restructed_excel_data = defaultdict(list)
 
@@ -42,6 +46,7 @@ def get_restructed_excel_data(excel_data):
 
             result.append(wine)
 
+    result.sort(key=my_key)
     return result
 
 
