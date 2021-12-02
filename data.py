@@ -25,6 +25,7 @@ def get_restructed_excel_data(excel_data):
             'Название': item['Название'],
             'Сорт': item['Сорт'],
             'Цена': item['Цена'],
+            'Акция': True if item['Акция'] else False
         }
         restructed_excel_data[item['Категория']].append(wine)
 
@@ -45,7 +46,7 @@ def get_restructed_excel_data(excel_data):
 
 
 if __name__ == '__main__':
-    excel_data = load_excel('wine2_1.xlsx')
+    excel_data = load_excel('wine3.xlsx')
     # print(type(excel_data))
     pprint(excel_data)
     # print(len(excel_data))
