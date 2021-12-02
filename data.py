@@ -1,6 +1,6 @@
 from collections import defaultdict
+
 import pandas
-from pprint import pprint
 
 
 def load_excel(filename):
@@ -48,11 +48,3 @@ def get_restructed_excel_data(excel_data):
 
     result.sort(key=my_key)
     return result
-
-
-if __name__ == '__main__':
-    excel_data = load_excel('wine3.xlsx')
-    # print(type(excel_data))
-    pprint(excel_data)
-    # print(len(excel_data))
-    #

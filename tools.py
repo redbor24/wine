@@ -1,4 +1,5 @@
 from datetime import datetime
+
 from dateutil.relativedelta import relativedelta
 
 
@@ -18,4 +19,3 @@ def plural_days(n):
 def get_company_age_plural():
     company_founded = datetime(year=1920, month=1, day=1)
     return relativedelta(datetime.today(), company_founded).years
-
