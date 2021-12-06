@@ -13,7 +13,7 @@ env = Environment(
 template = env.get_template('template.html')
 
 rendered_page = template.render(
-    company_old=get_company_age(),
+    company_age=get_company_age(),
     wines=data.load_excel('wine3.xlsx')
 )
 
