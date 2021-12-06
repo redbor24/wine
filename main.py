@@ -6,26 +6,32 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 import data
 from tools import get_company_age
 
-p = configargparse.ArgParser()
-p.add_argument('-df', required=True, type=str,
-               help='Excel-list of wines to load')
-args = p.parse_args()
-wines_excel_file = args.df
 
-env = Environment(
-    loader=FileSystemLoader('.'),
-    autoescape=select_autoescape(['html', 'xml'])
-)
+def main():
+    p = configargparse.ArgParser()
+    p.add_argument('-df', required=True, type=str,
+                   help='Excel-list of wines to load')
+    args = p.parse_args()
+    wines_excel_file = args.df
 
-template = env.get_template('template.html')
+    env = Environment(
+        loader=FileSystemLoader('.'),
+        autoescape=select_autoescape(['html', 'xml'])
+    )
 
-rendered_page = template.render(
-    company_age=get_company_age(),
-    wines=data.load_excel(wines_excel_file)
-)
+    template = env.get_template('template.html')
 
-with open('index.html', 'w', encoding="utf8") as file:
-    file.write(rendered_page)
+    rendered_page = template.render(
+        company_age=get_company_age(),
+        wines=data.load_excel(wines_excel_file)
+    )
 
-server = HTTPServer(('0.0.0.0', 8000), SimpleHTTPRequestHandler)
-server.serve_forever()
+    with open('index.html', 'w', encoding="utf8") as file:
+        file.write(rendered_page)
+
+    server = HTTPServer(('0.0.0.0', 8000), SimpleHTTPRequestHandler)
+    server.serve_forever()
+
+
+if __name__ == '__main__':
+    main()
