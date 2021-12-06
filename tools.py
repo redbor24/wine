@@ -3,7 +3,7 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
 
-def plural_days(n):
+def get_year_plural(n):
     days = ['год', 'года', 'лет']
 
     if n % 10 == 1 and n % 100 != 11:
