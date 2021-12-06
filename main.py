@@ -10,7 +10,8 @@ from tools import get_company_age
 def main():
     p = configargparse.ArgParser()
     p.add_argument('-df', required=True, type=str,
-                   help='Excel-list of wines to load')
+                   help='List of wines to load in Excel format. ' 
+                        'See "wineslist_template.xlsx" for example')
     args = p.parse_args()
     wines_excel_file = args.df
 
