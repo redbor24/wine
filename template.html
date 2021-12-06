@@ -115,16 +115,15 @@
         </div>
 
 
-        {% for wine in wines %}
-        {% if wine.start_category %}
+        {% for wine_category, wines in wines.items() %}
         <div class="row">
           <div class="col-12 section-title text-center mb-5">
-            <h2 class="d-block">{{wine.Категория}}</h2>
+            <h2 class="d-block">{{wine_category}}</h2>
             </p>
           </div>
         </div>
         <div class="row">
-        {% endif %}
+          {% for wine in wines %}
           <div class="col-lg-4 mb-5 col-md-6">
             <div class="wine_v_1 text-center pb-4 pt-5">
               <img src="images/{{wine.Картинка}}" alt="Image" class="img-fluid">
@@ -142,9 +141,8 @@
               </div>
             </div>
           </div>
-        {% if wine.stop_category %}
+          {% endfor %}
         </div>
-        {% endif %}
         {% endfor %}
       </div>
     </div>
