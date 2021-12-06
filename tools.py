@@ -2,6 +2,8 @@ from datetime import datetime
 
 from dateutil.relativedelta import relativedelta
 
+WINE_COMPANY_BIRTH_YEAR = 1920
+
 
 def get_year_plural(year):
     year_plural_names = ['год', 'года', 'лет']
@@ -19,4 +21,4 @@ def get_year_plural(year):
 def get_company_age():
     return get_year_plural(relativedelta(
         datetime.today(),
-        datetime(year=1920, month=1, day=1)).years)
+        datetime(year=WINE_COMPANY_BIRTH_YEAR, month=1, day=1)).years)
