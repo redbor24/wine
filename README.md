@@ -17,17 +17,22 @@ pip install -r requirements.txt
 ```
 
 ## Использование
+### Данные для отображения на сайте
+Для запуска скрипту нужно указать файл данных в формате MS Excel. Примером такого
+файла является файл `wineslist_template.xlsx`.
+
 - Запустите сайт командой 
 ```
-python3 main.py -df <excel-file>
+python3 main.py -df <ваш excel-file>
 ```
 или
 ```
-python main.py -df <excel-file>
+python main.py -df <ваш excel-file>
 ```
 
 - Перейдите на сайт по адресу [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
 ## Цели проекта
-
-Код написан в учебных целях — это урок в курсе по Python и веб-разработке на сайте [Devman](https://dvmn.org).
+Код написан в учебных целях — это 
+[Урок 1. Продаём элитное вино](https://dvmn.org/modules/website-layout-for-pydev/lesson/wine-shop)
+в курсе по Python и веб-разработке на сайте [Devman](https://dvmn.org).
