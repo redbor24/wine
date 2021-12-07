@@ -24,13 +24,14 @@ def main():
 
     rendered_page = template.render(
         company_age=get_company_age(),
-        wines=data.load_excel(wines_excel_file)
+        wines=data.import_excel_datafile(wines_excel_file)
     )
 
     with open('index.html', 'w', encoding="utf8") as file:
         file.write(rendered_page)
 
     server = HTTPServer(('0.0.0.0', 8000), SimpleHTTPRequestHandler)
+    print('Кликните http://127.0.0.1:8000')
     server.serve_forever()
 
 

@@ -3,7 +3,7 @@ from collections import defaultdict
 import pandas
 
 
-def load_excel(filename):
+def import_excel_datafile(filename):
     excel_data = pandas.read_excel(
         filename,
         sheet_name='Лист1',
