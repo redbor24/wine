@@ -8,11 +8,11 @@ from tools import get_company_age
 
 
 def main():
-    p = configargparse.ArgParser()
-    p.add_argument('-df', required=True, type=str,
+    arg_parser = configargparse.ArgParser()
+    arg_parser.add_argument('-df', required=True, type=str,
                    help='List of wines to load in Excel format. ' 
                         'See "wineslist_template.xlsx" for example')
-    args = p.parse_args()
+    args = arg_parser.parse_args()
     wines_excel_file = args.df
 
     env = Environment(
@@ -31,7 +31,7 @@ def main():
         file.write(rendered_page)
 
     server = HTTPServer(('0.0.0.0', 8000), SimpleHTTPRequestHandler)
-    print('Кликните http://127.0.0.1:8000')
+    print('Кликните http://127.0.0.1:8000 для просмотра')
     server.serve_forever()
 
 
