@@ -3,9 +3,9 @@ from collections import defaultdict
 import pandas
 
 
-def load_wines(filename):
+def load_wines(filepath):
     wines = pandas.read_excel(
-        filename,
+        filepath,
         sheet_name='Лист1',
         na_values='nan',
         keep_default_na=False
