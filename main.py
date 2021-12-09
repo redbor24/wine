@@ -16,7 +16,7 @@ def main():
         help='List of wines to load in Excel format.'
              ' See "wineslist_template.xlsx" for example')
     args = arg_parser.parse_args()
-    wines_filename = args.df
+    wines_filepath = args.df
 
     env = Environment(
         loader=FileSystemLoader('.'),
@@ -27,7 +27,7 @@ def main():
 
     rendered_page = template.render(
         company_age_caption=get_company_age_caption(),
-        wines=data.load_wines(wines_filename)
+        wines=data.load_wines(wines_filepath)
     )
 
     with open('index.html', 'w', encoding="utf8") as file:
