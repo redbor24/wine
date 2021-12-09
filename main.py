@@ -27,7 +27,7 @@ def main():
 
     rendered_page = template.render(
         company_age_caption=get_company_age_caption(),
-        wines=data.import_excel_datafile(wines_excel_file)
+        wines=data.load_wines(wines_excel_file)
     )
 
     with open('index.html', 'w', encoding="utf8") as file:
