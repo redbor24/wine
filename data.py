@@ -4,18 +4,18 @@ import pandas
 
 
 def load_wines(filename):
-    excel_data = pandas.read_excel(
+    wines = pandas.read_excel(
         filename,
         sheet_name='Лист1',
         na_values='nan',
         keep_default_na=False
-    )
+    ).to_dict(orient='records')
 
-    wines = defaultdict(list)
-    for wine in excel_data.to_dict(orient='records'):
-        wines[wine['Категория']].append(wine)
+    wines_by_category = defaultdict(list)
+    for wine in wines:
+        wines_by_category[wine['Категория']].append(wine)
 
-    return wines
+    return wines_by_category
 
 
 def my_key(wine):
